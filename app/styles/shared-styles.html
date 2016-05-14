@@ -13,6 +13,46 @@
         pointer-events: none;
       }
 
+      paper-input{
+        width: 40px;
+        text-align: center;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+
+      paper-material.equation{
+        max-width: calc(66.33% - 32px);
+      }
+
+      paper-material.solution{
+        width: calc(33.33% - 32px);
+      }
+
+      #calc>paper-material{
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+      paper-textarea{
+        min-width: 40px;
+        overflow: scroll;
+        text-align: center;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+
+      .solution-vector {
+        width: 100%;
+        overflow: scroll;
+      }
+
+      .solution-vector paper-listbox{
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       @media (max-width: 600px) {
         .page-title {
           font-size: 24px!important;
