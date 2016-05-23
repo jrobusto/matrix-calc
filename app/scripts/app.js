@@ -79,3 +79,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
 })(document);
+
+function submitMatrix(){
+  var augmented = retrieveMatrix();
+  console.log(augmented);
+}
+function retrieveMatrix(){
+  var augmented = {};
+  var calc = document.querySelector('#calc');
+  var coefficientsElem = document.querySelector('#coefficients');
+  var rows = coefficientsElem.querySelectorAll('paper-listbox');
+  var matrix = [];
+  for (var i = 0; i < rows.length; i++){
+    var row = [];
+    var cells = rows[i].querySelectorAll('paper-textarea');
+    for (var j = 0; j < cells.length; j++){
+      row.push(cells[j].value);
+    }
+    matrix.push(row);
+  }
+  augmented.coefficients = matrix;
+  var solutionVector = document.querySelector('#solution-vector');
+  var values = solutionVector.querySelectorAll('paper-textarea');
+  var solutions = [];
+  for (i = 0; i < values.length; i++){
+    solutions.push(values[i].value);
+  }
+  augmented.solution = solutions;
+  return augmented;
+}

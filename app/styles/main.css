@@ -12,3 +12,15 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+#addRow, #submit{
+  margin-top: 1em;
+}
+
+#addRow{
+  margin-left: 23%;
+}
+
+#submit{
+  margin-left: 30%;
+}
