@@ -136,8 +136,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <paper-textarea maxRows="1"></paper-textarea>
                   </paper-listbox>
                 </paper-material>
-                <paper-button id="addColumn" raised><iron-icon icon="add-circle"></iron-icon> Column</paper-button>
-
+                <div class="layout vertical">
+                  <paper-button id="addColumn" onclick="addColumn()" raised><iron-icon icon="add-circle"></iron-icon> Column</paper-button>
+                  <paper-button id="removeColumn" onclick="removeColumn()" raised><iron-icon icon="remove-circle"></iron-icon> Column</paper-button>
+                </div>
                 <paper-material class="solution" elevation="1">
                   <paper-header-panel>
                     <paper-toolbar><div class="title">Solution Vector</div></paper-toolbar>
@@ -150,8 +152,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   </div>
                 </paper-material>
               </div>
-              <div class="layout horizontal center around-justified">
-                <paper-button id="addRow" raised><iron-icon icon="add-circle"></iron-icon> Row</paper-button>
+              <div id="lowerButtons" class="layout horizontal center around-justified">
+                <paper-button id="addRow" onclick="addRow()" raised><iron-icon icon="add-circle"></iron-icon> Row</paper-button>
+                <paper-button id="removeRow" onclick="removeRow()" raised><iron-icon icon="remove-circle"></iron-icon> Row</paper-button>
                 <paper-button id="submit" onclick="submitMatrix()" raised><iron-icon icon="check"></iron-icon>Submit</paper-button>
               </div>
             </section>

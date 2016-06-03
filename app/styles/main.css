@@ -13,14 +13,17 @@ body {
   color: #333;
 }
 
-#addRow, #submit{
+#lowerButtons>paper-button{
   margin-top: 1em;
 }
 
 #addRow{
-  margin-left: 23%;
+  margin-left: 15%;
 }
 
+#addColumn{
+  margin-bottom: 2em;
+}
 #submit{
   margin-left: 30%;
 }
