@@ -87,6 +87,8 @@ function submitMatrix(){
 
 function addRow(){
   var coefficientsElem = document.querySelector('#coefficients');
+    coefficientsElem.dataset.rows += 1;
+
   var rows = coefficientsElem.querySelectorAll('paper-listbox');
   var newRow = rows[0].cloneNode(true);
   coefficientsElem.appendChild(newRow);
@@ -95,12 +97,18 @@ function addRow(){
   var values = solutionVector.querySelectorAll('paper-textarea');
   var newValue = values[0].cloneNode(true);
   solutionVector.appendChild(newValue);
+
+  if (coefficientsElem.dataset.rows == 2){
+    document.getElementById('removeRow').removeAttribute('disabled');
+  }
 }
 
 function removeRow(){
   var coefficientsElem = document.querySelector('#coefficients');
-  var rows = coefficientsElem.querySelectorAll('paper-listbox');
-  if (rows.length > 1){
+  if (coefficientsElem.dataset.rows > 1){
+    coefficientsElem.dataset.rows -= 1;
+    var rows = coefficientsElem.querySelectorAll('paper-listbox');
+
     var lastRow = rows[rows.length - 1];
     lastRow.remove();
 
@@ -108,28 +116,41 @@ function removeRow(){
     var values = solutionVector.querySelectorAll('paper-textarea');
     var lastValue = values[values.length - 1];
     lastValue.remove();
+
+    if (coefficientsElem.dataset.rows == 1){
+      document.getElementById('removeRow').setAttribute('disabled', 'disabled');
+    }
   }
 }
 
 function addColumn(){
   var coefficientsElem = document.querySelector('#coefficients');
+  coefficientsElem.dataset.columns += 1;
+
   var rows = coefficientsElem.querySelectorAll('paper-listbox');
   for (var i = 0; i < rows.length; i++){
     var newCell = rows[i].querySelector('paper-textarea').cloneNode(true);
     rows[i].appendChild(newCell);
   }
+  if (coefficientsElem.dataset.columns == 2){
+    document.getElementById('removeColumn').removeAttribute('disabled');
+  }
+  }
 }
 
 function removeColumn(){
   var coefficientsElem = document.querySelector('#coefficients');
-  var rows = coefficientsElem.querySelectorAll('paper-listbox');
-  for (var i = 0; i < rows.length; i++){
-    var cells = rows[i].querySelectorAll('paper-textarea');
-    if (cells.length > 1){
+  if (coefficientsElem.dataset.columns > 1){
+    coefficientsElem.dataset.columns -= 1;
+    var rows = coefficientsElem.querySelectorAll('paper-listbox');
+    for (var i = 0; i < rows.length; i++){
+      var cells = rows[i].querySelectorAll('paper-textarea');
       var lastCell = cells[cells.length - 1];
       lastCell.remove();
-    }else{
-      break;
+    }
+
+    if (coefficientsElem.dataset.columns == 1){
+      document.getElementById('removeColumn').setAttribute('disabled', 'disabled');
     }
   }
 }
