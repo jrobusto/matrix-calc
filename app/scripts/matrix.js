@@ -70,6 +70,8 @@ function removeColumn(){
 function submitMatrix(){
   var augmented = retrieveAugmentedMatrix();
   console.table(augmented);
+  augmented = rowReduction(augmented);
+  console.table(augmented);
   // console.table(swapRows(augmented, 0, 1));
   // console.log(augmented);
   // console.table(multiplyRow(augmented, 0, 3));
